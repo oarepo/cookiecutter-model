@@ -1,0 +1,23 @@
+{
+  " ": "Step 1 of 3]\n\nWelcome to\n\n  ▓▓▓      ▓▓     ▓▓▓▓▓    ▓▓▓▓▓   ▓▓▓▓▓     ▓▓▓\n▓▓   ▓▓  ▓▓  ▓▓   ▓▓  ▓▓   ▓▓      ▓▓  ▓▓  ▓▓   ▓▓\n▓▓   ▓▓  ▓▓▓▓▓▓   ▓▓▓▓▓    ▓▓▓▓▓   ▓▓▓▓▓   ▓▓   ▓▓\n▓▓   ▓▓  ▓▓  ▓▓   ▓▓  ▓▓   ▓▓      ▓▓      ▓▓   ▓▓\n  ▓▓▓    ▓▓  ▓▓   ▓▓  ▓▓   ▓▓▓▓▓   ▓▓        ▓▓▓\n\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀\n\nThis cookiecutter will create source files for a repository metadata\nmodel. Please answer the following questions, keeping defaults if\nunsure:\n\n1. Enter your \"model name\". Can be any [a-zA-Z-] string, will be used\n   to create the top-level directory as well as pypi package name\n2. In most cases the \"model package\" can be left as is - it is a name\n   of the python package derived from the model name\n\n[Press Enter when ready",
+  "model_name": "my-model",
+  "model_package": "{{cookiecutter.model_name | replace('-', '_') }}",
+  "  ": "Step 2 of 3]\n\n\nNow choose if you want to start from a completely empty model or if you\nwant to base your model on an already existing one. You have the following\noptions:\n\n* common       - a common set of metadata created by the National library of Technology, Prague\n                 compatible with Dublin Core\n                 See https://github.com/Narodni-repozitar/nr-common-metadata for details\n* documents    - extension of common, can be used to capture metadata of documents (articles etc.)\n                 See https://github.com/Narodni-repozitar/nr-documents-records for details\n* data         - extension of common for capturing generic metadata about datasets\n                 See TODO for details\n* custom_model - use any custom model as a base model. If you select this option, answer the next two questions\n                 (base_model_package, base_model_use) as well\n* empty_model  - just what it says, not recommended as you have no compatibility with\n                 the Czech National Repository\n\nWhen asked about the base_model_package: leave as is unless you have chosen a custom base model.\nIn that case enter the package name of the model builder extension on pypi which contains the custom model.\n\nWhen asked about the base_model_use: leave as is unless you have chosen a custom base model.\nIn that case enter the string that should be put to 'oarepo:use. Normally that is the name\nof the extension without 'model-builder-'. See the documentation of your custom model for details.\n\n[Press Enter when ready",
+  "model_kind": [
+    "common",
+    "documents",
+    "data",
+    "custom model",
+    "empty model"
+  ],
+  "base_model_package": "{%- if cookiecutter.model_kind == 'empty model' -%} (none) {%- elif cookiecutter.model_kind == 'common' -%} nr-common-metadata-model-builder {%- elif cookiecutter.model_kind == 'documents' -%} nr-documents-records-model-builder {%- elif cookiecutter.model_kind == 'data' -%} TODO {%- elif cookiecutter.model_kind == 'common' -%} {%- endif -%}",
+  "base_model_use": "{{ cookiecutter.base_model_package|strip_model_builder }}",
+  "   ": "Step 3 of 3]\n\nNow tell me something about you and URL of the source code repository which will contain the project.\n\n[Press Enter when ready",
+  "author": "",
+  "author_email": "",
+  "repository_url": "",
+  "    ": "About to generate source code]\n\nNow I will generate the source code. After the code is generated, make your changes to\n{{ cookiecutter.model_name }}/model.yaml and run the \"build.sh\" file contained in the same directory.\n\nTo get more details about the structure of the model file, see the documentation\nat https://github.com/oarepo/oarepo-model-builder\n\n[Press Enter to start, Ctrl-C to cancel",
+  "_extensions": [
+    "local_extensions.strip_model_builder"
+  ]
+}

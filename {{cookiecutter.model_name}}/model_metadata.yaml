@@ -1,0 +1,22 @@
+model:
+  properties:
+    metadata:
+      properties: {}  # to add yout own properties, remove this line and uncomment the next one
+      # properties:
+      #   my_property:
+      #     type: fulltext
+
+{%- if cookiecutter.base_model_package != '(none)' %}
+plugins:
+  packages:
+    - {{ cookiecutter.base_model_package }}
+    - nr-vocabularies-model-builder
+    - oarepo-vocabularies-model-builder
+{%- endif %}
+
+oarepo:use:
+  - invenio
+{%- if cookiecutter.base_model_use != '(none)' %}
+  - {{ cookiecutter.base_model_use }}
+{%- endif %}
+
