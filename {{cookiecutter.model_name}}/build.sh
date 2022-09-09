@@ -30,7 +30,8 @@ EOF
         sed 's/\(^\[options.entry_points\][ \t]*$\)/\1\noarepo.ui =/' $directory/setup.cfg >$directory/setup.cfg.tmp
         mv $directory/setup.cfg.tmp $directory/setup.cfg
       )
-      sed "s/\\(^[ \\t]*oarepo.ui =[ \\t]*$\\)/\1\n    $LINE/" $directory/setup.cfg
+      sed "s/\\(^[ \\t]*oarepo.ui =[ \\t]*$\\)/\1\n    $LINE/" $directory/setup.cfg >$directory/setup.cfg.tmp
+      mv $directory/setup.cfg.tmp $directory/setup.cfg
     )
   done
   rm ${python_f} ${out_f}
