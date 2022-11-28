@@ -1,5 +1,5 @@
 oarepo:use:
-  - ./model_metadata.yaml
+  - ./metadata.yaml
 
 {% if cookiecutter.base_model_package != '(none)' %}
 oarepo:ui:
