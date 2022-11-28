@@ -2,11 +2,20 @@
 
 set -e
 
+MB_VENV=.venv-model-builder
+
+# start error handling for virtualenv creation errors
+cleanup_venv() {
+    test -d $MB_VENV && rm -rf $MB_VENV
+    exit 1
+}
+
+trap 'cleanup_venv' ERR
+
 cd "$(dirname $0)"
 
 # prepare virtualenv
 
-MB_VENV=.venv-model-builder
 MB_BIN=${MB_VENV}/bin
 MB_PIP=${MB_BIN}/pip
 
@@ -17,7 +26,7 @@ if [ ! -d ${MB_VENV} ] ; then
   ${MB_PIP} install -U setuptools wheel
 
   # install model builder main package
-  ${MB_PIP} install 'oarepo-model-builder>=1.0.0dev29'
+  ${MB_PIP} install 'oarepo-model-builder>=1.0.0dev31'
 
   # install required plugins
   {% if cookiecutter.base_model_package != '(none)' %}
@@ -27,6 +36,9 @@ if [ ! -d ${MB_VENV} ] ; then
                        oarepo-model-builder-multilingual
   {% endif %}
 fi
+
+# remove error handling for virtualenv errors
+trap - ERR
 
 ${MB_BIN}/oarepo-compile-model -vvv model_app.yaml --output-directory {{ cookiecutter.model_name }}
  # --save-model model_included.yaml

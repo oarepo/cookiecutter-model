@@ -61,11 +61,11 @@ model_kind:
   - common
   - documents
   - data
-  - custom model
-  - empty model
+  - custom
+  - empty
 
 base_model_package: >-
-  {%- if cookiecutter.model_kind == 'empty model' -%} (none)
+  {%- if cookiecutter.model_kind == 'empty' -%} (none)
   {%- elif cookiecutter.model_kind == 'common' -%} nr-common-metadata-model-builder
   {%- elif cookiecutter.model_kind == 'documents' -%} nr-documents-records-model-builder
   {%- elif cookiecutter.model_kind == 'data' -%} TODO

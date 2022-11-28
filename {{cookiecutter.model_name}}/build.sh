@@ -73,9 +73,20 @@ done
 # just list created stuff
 ls -la dist
 
+test -d .venv-twine || (
+  python3 -m venv .venv-twine
+  .venv-twine/bin/pip install twine
+)
+
 for i in dist/*.tar.gz; do
   echo
   echo Listing $i
   tar -tf $i
+done
+
+for i in dist/*.tar.gz; do
+  echo
+  echo Validating $i
+  .venv-twine/bin/twine check $i
 done
 

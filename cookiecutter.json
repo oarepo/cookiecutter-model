@@ -7,10 +7,10 @@
     "common",
     "documents",
     "data",
-    "custom model",
-    "empty model"
+    "custom",
+    "empty"
   ],
-  "base_model_package": "{%- if cookiecutter.model_kind == 'empty model' -%} (none) {%- elif cookiecutter.model_kind == 'common' -%} nr-common-metadata-model-builder {%- elif cookiecutter.model_kind == 'documents' -%} nr-documents-records-model-builder {%- elif cookiecutter.model_kind == 'data' -%} TODO {%- elif cookiecutter.model_kind == 'common' -%} {%- endif -%}",
+  "base_model_package": "{%- if cookiecutter.model_kind == 'empty' -%} (none) {%- elif cookiecutter.model_kind == 'common' -%} nr-common-metadata-model-builder {%- elif cookiecutter.model_kind == 'documents' -%} nr-documents-records-model-builder {%- elif cookiecutter.model_kind == 'data' -%} TODO {%- elif cookiecutter.model_kind == 'common' -%} {%- endif -%}",
   "base_model_use": "{{ cookiecutter.base_model_package|strip_model_builder }}",
   "   ": "Step 3 of 3]\n\nNow tell me something about you and URL of the source code repository which will contain the project.\n\n[Press Enter when ready",
   "author": "",
