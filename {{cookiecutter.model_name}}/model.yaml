@@ -24,3 +24,7 @@ settings:
     en: {}
 {% endif %}
 {% endif %}
+
+plugins:
+  packages:
+    - oarepo-model-builder-tests
