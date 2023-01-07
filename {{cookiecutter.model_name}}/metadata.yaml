@@ -1,10 +1,14 @@
 model:
   properties:
     metadata:
-      properties: {}  # to add yout own properties, remove this line and uncomment the next one
-      # properties:
-      #   my_property:
-      #     type: fulltext
+      properties:
+{%- if cookiecutter.base_model_package == '(none)' %}
+        title:
+          type: fulltext
+{%- else %}
+        # TODO: add your own properties here or replace the "properties:" line with "properties: {}"
+{%- endif %}
+
 
 {%- if cookiecutter.base_model_package != '(none)' %}
 plugins:
