@@ -1,26 +1,6 @@
-model:
-  properties:
-    metadata:
-      properties:
 {%- if cookiecutter.base_model_package == '(none)' %}
-        title:
-          type: fulltext
+title:
+  type: fulltext
 {%- else %}
-        # TODO: add your own properties here or replace the "properties:" line with "properties: {}"
+# TODO: add your own properties here
 {%- endif %}
-
-
-{%- if cookiecutter.base_model_package != '(none)' %}
-plugins:
-  packages:
-    - {{ cookiecutter.base_model_package }}
-    - nr-vocabularies-model-builder
-    - oarepo-vocabularies-model-builder
-{%- endif %}
-
-oarepo:use:
-  - invenio
-{%- if cookiecutter.base_model_use != '(none)' %}
-  - {{ cookiecutter.base_model_use }}
-{%- endif %}
-

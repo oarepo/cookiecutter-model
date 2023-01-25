@@ -1,30 +1,36 @@
-oarepo:use:
-  - ./metadata.yaml
-
-{% if cookiecutter.base_model_package != '(none)' %}
-oarepo:ui:
-  # add your ui definition here
-{% endif %}
+model:
+  use:
+  - invenio
+{%- if cookiecutter.base_model_use != '(none)' %}
+  - {{ cookiecutter.base_model_use }}
+{%- endif %}
+  properties:
+    metadata:
+      properties:
+        use: ./metadata.yaml
 
 # normally there is no need to modify the settings bellow, but feel free
-settings:
   package: {{ cookiecutter.model_package }}
   schema-server: 'local://'
 {%- if cookiecutter.base_model_package != '(none)' %}
-  python:
-    record-service-config-components:
-      - invenio_records_resources.services.records.components.DataComponent
-      - invenio_records_resources.services.records.components.RelationsComponent
-{% if cookiecutter.base_model_package != '(none)' %}
-  oarepo:vocabularies:
+  record-service-config-components:
+    - invenio_records_resources.services.records.components.DataComponent
+    - invenio_records_resources.services.records.components.RelationsComponent
+  vocabularies:
     schema: nr-vocabularies
     record-class: nr_vocabularies.records.api.NRVocabulary
   supported-langs:
     cs: {}
     en: {}
 {% endif %}
-{% endif %}
 
 plugins:
   packages:
     - oarepo-model-builder-tests
+{%- if cookiecutter.base_model_package != '(none)' %}
+    - {{ cookiecutter.base_model_package }}
+    - nr-vocabularies-model-builder
+    - oarepo-vocabularies-model-builder
+{%- endif %}
+
+
