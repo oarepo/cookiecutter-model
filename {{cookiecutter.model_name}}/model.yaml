@@ -24,13 +24,13 @@ model:
     en: {}
 {% endif %}
 
-plugins:
-  packages:
-    - oarepo-model-builder-tests
-{%- if cookiecutter.base_model_package != '(none)' %}
-    - {{ cookiecutter.base_model_package }}
-    - nr-vocabularies-model-builder
-    - oarepo-vocabularies-model-builder
-{%- endif %}
+  plugins:
+    packages:
+      - oarepo-model-builder-tests
+  {%- if cookiecutter.base_model_package != '(none)' %}
+      - {{ cookiecutter.base_model_package }}
+      - nr-vocabularies-model-builder
+      - oarepo-vocabularies-model-builder
+  {%- endif %}
 
 
