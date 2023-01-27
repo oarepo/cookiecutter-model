@@ -23,7 +23,7 @@ model:
     cs: {}
     en: {}
 {% endif %}
-
+{#
   plugins:
     packages:
       - oarepo-model-builder-tests
@@ -32,5 +32,5 @@ model:
       - nr-vocabularies-model-builder
       - oarepo-vocabularies-model-builder
   {%- endif %}
-
+#}
 
