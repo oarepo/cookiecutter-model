@@ -19,5 +19,17 @@
   "    ": "About to generate source code]\n\nNow I will generate the source code. After the code is generated, make your changes to\n{{ cookiecutter.model_name }}/model.yaml and run the \"build.sh\" file contained in the same directory.\n\nTo get more details about the structure of the model file, see the documentation\nat https://github.com/oarepo/oarepo-model-builder\n\n[Press Enter to start, Ctrl-C to cancel",
   "_extensions": [
     "local_extensions.strip_model_builder"
+  ],
+  "use_files": [
+    "yes",
+    "no"
+  ],
+  "use_requests": [
+    "yes",
+    "no"
+  ],
+  "use_expandable_fields": [
+    "yes",
+    "no"
   ]
 }

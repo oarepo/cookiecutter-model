@@ -1,0 +1,9 @@
+#TODO: add your expandable fields definitions for the base record here
+#example:
+#expandable-fields:
+#- field-name: metadata.file
+#  referenced-keys:
+#  - metadata.filename
+#  - metadata.filesize
+#  service: model_file.proxies.current_service
+expandable-fields:
