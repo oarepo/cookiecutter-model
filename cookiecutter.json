@@ -31,5 +31,13 @@
   "use_expandable_fields": [
     "yes",
     "no"
+  ],
+  "use_custom_fields": [
+    "yes",
+    "no"
+  ],
+  "use_relations": [
+    "yes",
+    "no"
   ]
 }
