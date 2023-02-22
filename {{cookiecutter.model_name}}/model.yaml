@@ -55,7 +55,6 @@ model:
   {%- endif %}
 #}
 use:
-- ./definitions.yaml
 {%- if cookiecutter.use_files == "yes" %}
 - ./files.yaml
 {%- endif %}
@@ -63,3 +62,6 @@ use:
 - ./requests.yaml
 {%- endif %}
 
+$defs:
+  use:
+  - ./definitions.yaml
