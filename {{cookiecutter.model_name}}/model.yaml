@@ -1,3 +1,7 @@
+$defs:
+  use:
+  - ./definitions.yaml
+
 model:
   use:
   - invenio
@@ -61,7 +65,3 @@ use:
 {%- if cookiecutter.use_requests == "yes" %}
 - ./requests.yaml
 {%- endif %}
-
-$defs:
-  use:
-  - ./definitions.yaml
