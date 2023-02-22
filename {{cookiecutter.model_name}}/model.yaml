@@ -7,6 +7,9 @@ model:
 {%- if cookiecutter.use_expandable_fields == "yes" %}
   - ./expandable_fields.yaml
 {%- endif %}
+{%- if cookiecutter.use_custom_fields == "yes" %}
+  - ./custom_fields.yaml
+{%- endif %}
   properties:
     metadata:
       properties:
@@ -29,20 +32,26 @@ model:
 {#
   plugins:
     packages:
-      - oarepo-model-builder-tests
+    - oarepo-model-builder-tests
   {%- if cookiecutter.base_model_package != '(none)' %}
-      - {{ cookiecutter.base_model_package }}
-      - nr-vocabularies-model-builder
-      - oarepo-vocabularies-model-builder
+    - {{ cookiecutter.base_model_package }}
+    - nr-vocabularies-model-builder
+    - oarepo-vocabularies-model-builder
     {%- if cookiecutter.use_files == "yes" %}
-      - oarepo-model-builder-files
+    - oarepo-model-builder-files
     {%- endif %}
     {%- if cookiecutter.use_requests == "yes" %}
-      - oarepo-model-builder-requests
+    - oarepo-model-builder-requests
     {%- endif %}
     {%- if cookiecutter.use_expandable_fields == "yes" %}
-      - oarepo-model-builder-expansions
+    - oarepo-model-builder-expansions
     {%- endif %}
+    { %- if cookiecutter.use_custom_fields == "yes" % }
+    - oarepo-model-builder-cf
+    { %- endif % }
+    { %- if cookiecutter.use_relations == "yes" % }
+    - oarepo-model-builder-relations
+    { %- endif % }
   {%- endif %}
 #}
 use:

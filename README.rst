@@ -57,3 +57,22 @@ To generate correct files, please provide the following input to Cookiecutter:
                               not the full GitHub URL.
 `**TODO**`                    `**TODO**`
 ============================ ==============================================================
+Plugins
+-------------
+The template offers functionality to include model builder plugins into the generated template.
+If the `use_{template_name}` option is set to "yes", then the model.yaml file is edited
+to link to the plugin specific yaml file for plugin definition, otherwise the plugin yaml is
+deleted in post_gen_project.py hook.
+
+Currently supported plugins:
+
+- files
+
+- plugins
+
+- expandable fields
+
+- custom fields
+
+- relations
+
