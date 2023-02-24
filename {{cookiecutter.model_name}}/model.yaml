@@ -14,6 +14,11 @@ model:
     metadata:
       properties:
         use: ./metadata.yaml
+{%- if cookiecutter.permissions_presets != "no" %}
+  permissions:
+    presets:
+      {{ cookiecutter.permissions_presets }}
+{%- endif %}
 
 # normally there is no need to modify the settings bellow, but feel free
   package: {{ cookiecutter.model_package }}
