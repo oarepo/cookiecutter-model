@@ -23,6 +23,9 @@ model:
     presets:
     - {{ cookiecutter.permissions_presets }}
 {%- endif %}
+{%- if cookiecutter.pid_type %}
+  pid-type: {{ cookiecutter.pid_type }}
+{%- endif %}
 
 # normally there is no need to modify the settings bellow, but feel free
   package: {{ cookiecutter.model_package }}

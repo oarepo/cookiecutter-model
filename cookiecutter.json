@@ -44,5 +44,6 @@
     "no",
     "read_only",
     "everyone"
-  ]
+  ],
+  "pid_type": ""
 }
