@@ -6,4 +6,4 @@
 #  - metadata.filename
 #  - metadata.filesize
 #  service: model_file.proxies.current_service
-expandable-fields:
+expandable-fields: []

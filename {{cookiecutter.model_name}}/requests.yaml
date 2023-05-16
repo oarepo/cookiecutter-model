@@ -5,3 +5,4 @@
 #    class: thesis.requests.ApproveAction
 #    generate: False
 requests:
+  default_request: {}

@@ -39,5 +39,11 @@
   "use_relations": [
     "yes",
     "no"
-  ]
+  ],
+  "permissions_presets": [
+    "no",
+    "read_only",
+    "everyone"
+  ],
+  "pid_type": ""
 }
