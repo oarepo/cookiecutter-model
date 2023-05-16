@@ -2,7 +2,7 @@ $defs:
   use:
   - ./definitions.yaml
 
-model:
+record:
   use:
   - invenio
 {%- if cookiecutter.base_model_use != '(none)' %}
@@ -20,8 +20,9 @@ model:
         use: ./metadata.yaml
 
 # normally there is no need to modify the settings bellow, but feel free
-  package: {{ cookiecutter.model_package }}
-  schema-server: 'local://'
+  module:
+    qualified: {{ cookiecutter.model_package }}
+
 {%- if cookiecutter.base_model_package != '(none)' %}
   record-service-config-components:
     - invenio_records_resources.services.records.components.DataComponent
@@ -33,31 +34,10 @@ model:
     cs: {}
     en: {}
 {% endif %}
-{#
-  plugins:
-    packages:
-    - oarepo-model-builder-tests
-  {%- if cookiecutter.base_model_package != '(none)' %}
-    - {{ cookiecutter.base_model_package }}
-    - nr-vocabularies-model-builder
-    - oarepo-vocabularies-model-builder
-    {%- if cookiecutter.use_files == "yes" %}
-    - oarepo-model-builder-files
-    {%- endif %}
-    {%- if cookiecutter.use_requests == "yes" %}
-    - oarepo-model-builder-requests
-    {%- endif %}
-    {%- if cookiecutter.use_expandable_fields == "yes" %}
-    - oarepo-model-builder-expansions
-    {%- endif %}
-    { %- if cookiecutter.use_custom_fields == "yes" % }
-    - oarepo-model-builder-cf
-    { %- endif % }
-    { %- if cookiecutter.use_relations == "yes" % }
-    - oarepo-model-builder-relations
-    { %- endif % }
-  {%- endif %}
-#}
+
+settings:
+  schema-server: 'local://'
+
 use:
 {%- if cookiecutter.use_files == "yes" %}
 - ./files.yaml
