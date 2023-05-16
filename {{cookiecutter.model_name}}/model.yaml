@@ -5,6 +5,9 @@ $defs:
 record:
   use:
   - invenio
+{%- if cookiecutter.use_files == "yes" %}
+  - ./files.yaml
+{%- endif %}
 {%- if cookiecutter.base_model_use != '(none)' %}
   - {{ cookiecutter.base_model_use }}
 {%- endif %}
@@ -24,7 +27,8 @@ record:
     - {{ cookiecutter.permissions_presets }}
 {%- endif %}
 {%- if cookiecutter.pid_type %}
-  pid-type: {{ cookiecutter.pid_type }}
+  pid:
+    type: {{ cookiecutter.pid_type }}
 {%- endif %}
 
 # normally there is no need to modify the settings bellow, but feel free
@@ -42,11 +46,9 @@ record:
     cs: {}
     en: {}
 {% endif %}
-{%- if cookiecutter.use_files == "yes" or cookiecutter.use_requests == "yes" %}
+
+{%- if cookiecutter.use_requests == "yes" %}
 use:
-{%- if cookiecutter.use_files == "yes" %}
-- ./files.yaml
-{%- endif %}
 {%- if cookiecutter.use_requests == "yes" %}
 - ./requests.yaml
 {%- endif %}
