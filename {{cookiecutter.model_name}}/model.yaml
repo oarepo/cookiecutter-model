@@ -30,6 +30,12 @@ record:
   pid:
     type: {{ cookiecutter.pid_type }}
 {%- endif %}
+{%- if cookiecutter.use_drafts == "yes" %}
+  draft: {}
+{%- endif %}
+{%- if cookiecutter.use_drafts == "yes" and cookiecutter.use_files == "yes" %}
+  draft-files: {}
+{%- endif %}
 
 # normally there is no need to modify the settings bellow, but feel free
   module:
