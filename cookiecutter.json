@@ -45,5 +45,9 @@
     "read_only",
     "everyone"
   ],
+    "use_drafts": [
+    "yes",
+    "no"
+  ],
   "pid_type": ""
 }
