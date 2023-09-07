@@ -44,5 +44,9 @@
     "no",
     "read_only",
     "everyone"
+  ],
+    "use_drafts": [
+    "yes",
+    "no"
   ]
 }

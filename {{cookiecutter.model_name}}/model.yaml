@@ -38,6 +38,12 @@ model:
     cs: {}
     en: {}
 {% endif %}
+{%- if cookiecutter.use_drafts == "yes" %}
+  draft: {}
+{%- endif %}
+{%- if cookiecutter.use_drafts == "yes" and cookiecutter.use_files == "yes" %}
+  draft-files: {}
+{%- endif %}
 {#
   plugins:
     packages:
